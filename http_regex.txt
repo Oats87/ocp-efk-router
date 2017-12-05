@@ -1,0 +1,6 @@
+Original HTTP Regex:
+^(?<syslog_time>[\w\-\.\:]+) (?<syslog_host>[\w-\.]+) (?<ps>\w+)\[(?<pid>\d+)\]: (?<src_ip>[\d\.]+):(?<src_port>[\d]+) (?<haproxy_time>[\w\/\:\.\[\]]+) (?<frontend>[\w\.\~\_]+) (?<backend>[\w\.\_\~]+):(?<project>[\w\-]+):(?<route_name>[\w\-]+)/pod:(?<pod>[\w\-]+):(?<service>[\w\-]+):(?<pod_ip>[\d\.]+):(?<pod_port>[\d]+) (?<magic1>[\d\/]+) (?<response_code>[\d]+) (?<bytes_write>[\d]+) (?<captured_request_cookie>[\w\-]+) (?<captured_response_cookie>[\w\-]+) (?<termination_state>[\w\-]+) (?<magic2>[\d\/]+) (?<srv_queue>[\d]+)/(?<backend_queue>[\d]+) (?<request>.+)
+
+
+Optimized HTTP Regex: 
+^(?<syslog_time>[\w\-\.\:]+) (?<syslog_host>.+) (?<ps>.+)\[(?<pid>\d+)\]: (?<src_ip>[\d\.]+):(?<src_port>[\d]+) (?<haproxy_time>.+) (?<frontend>.+) (?<backend>.+):(?<project>.+):(?<route_name>.+)/pod:(?<pod>.+):(?<service>.+):(?<pod_ip>[\d\.]+):(?<pod_port>[\d]+) (?<Tq>\d+)/(?<Tw>\d+)/(?<Tc>\d+)/(?<Tr>\d+)/(?<Tt>\d+) (?<response_code>[\d]+) (?<bytes_write>[\d]+) (?<captured_request_cookie>.+) (?<captured_response_cookie>.+) (?<termination_state>[\w\-]+) (?<Aetconn>\d+)/(?<Feconn>\d+)/(?<Beconn>\d+)/(?<Srv_conn>\d+)/(?<retries>\d+) (?<srv_queue>[\d]+)/(?<backend_queue>[\d]+) (?<request>.+)
